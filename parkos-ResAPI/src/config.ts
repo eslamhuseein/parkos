@@ -1,0 +1,1 @@
+export const JWR_SECRET = 'supper-secret';
