@@ -1,0 +1,764 @@
+{
+	"info": {
+		"_postman_id": "3faa0cec-0571-4d07-8bc6-26239fc2c948",
+		"name": "Parkos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4299122"
+	},
+	"item": [
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "CreateReservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reservation\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11000/reservation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11000",
+							"path": [
+								"reservation"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "CreateReservation_Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservation\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "256"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"100-L4Ptgyz2nXJRoWM7N9ggO9wllaw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:44:23 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservation\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\",\n        \"updated_at\": null,\n        \"id\": \"2\",\n        \"created_at\": \"2022-07-16T03:44:23.000Z\"\n    }\n}"
+						},
+						{
+							"name": "CreateReservation_Validation_Errors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservation\": {\n\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "659"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"293-McG6pmctzhX8zvfJbEZ7k9wCl9k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:44:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Have 6 error(s)\",\n    \"errors\": {\n        \"name\": [\n            \"name must be a string\",\n            \"The name field is required.\"\n        ],\n        \"email\": [\n            \"email must be a string\",\n            \"The email field is required.\"\n        ],\n        \"arrivalDate\": [\n            \"arrivalDate must be a valid ISO 8601 date string\",\n            \"The arrivalDate field is required.\"\n        ],\n        \"arrivalTime\": [\n            \"arrivalTime must be a valid representation of military time in the format HH:MM\",\n            \"The arrivalTime field is required.\"\n        ],\n        \"departureDate\": [\n            \"departureDate must be a valid ISO 8601 date string\",\n            \"The departureDate field is required.\"\n        ],\n        \"departureTime\": [\n            \"departureTime must be a valid representation of military time in the format HH:MM\",\n            \"The departureTime field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "CreateReservation_BadRequest",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservationsssss\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-TfWRy7I0fbmXB+7WSV2RAYmIIKc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:45:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Please insert correct query\",\n    \"errors\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "ReadReservationByID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11000/reservation/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11000",
+							"path": [
+								"reservation",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ReadReservationByID_Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"122-yqwh9KdJzKP+J+CLRMyqJXM2d0E\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:46:21 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservation\": {\n        \"id\": \"1\",\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15T00:00:00.000Z\",\n        \"arrivalTime\": \"10:40:00\",\n        \"departureDate\": \"2022-08-16T00:00:00.000Z\",\n        \"departureTime\": \"16:30:00\",\n        \"status\": \"paid\",\n        \"created_at\": \"2022-07-16T03:32:50.000Z\",\n        \"updated_at\": null\n    }\n}"
+						},
+						{
+							"name": "ReadReservationByID_NotExist",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"10"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-g/awVc0TRQUpSGHDvJsJAPonkrQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:46:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Reservation is not exist\",\n    \"errors\": {\n        \"id\": [\n            \"Reservation is not exist\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "DeleteReservationByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11000/reservation/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11000",
+							"path": [
+								"reservation",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "DeleteReservationByID_Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"17-PVQD/E0HAqMH9FRBYNXdIixTtCA\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:47:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"raw\": [],\n    \"affected\": 1\n}"
+						},
+						{
+							"name": "DeleteReservationByID_NotExist",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"2"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "83"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"53-g/awVc0TRQUpSGHDvJsJAPonkrQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:47:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Reservation is not exist\",\n    \"errors\": {\n        \"id\": [\n            \"Reservation is not exist\"\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "UpdateReservation",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"reservation\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:11000/reservation/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "11000",
+							"path": [
+								"reservation",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "UpdateReservation_Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservation\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "278"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"116-9GaJSpomFmb+4cBY/s9n+mXq8BE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:48:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservation\": {\n        \"id\": \"1\",\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\",\n        \"created_at\": \"2022-07-16T03:32:50.000Z\",\n        \"updated_at\": \"2022-07-16T03:48:28.724Z\"\n    }\n}"
+						},
+						{
+							"name": "UpdateReservation_Validation_Errors",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservation\": {\n\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "659"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"293-McG6pmctzhX8zvfJbEZ7k9wCl9k\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:48:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Have 6 error(s)\",\n    \"errors\": {\n        \"name\": [\n            \"name must be a string\",\n            \"The name field is required.\"\n        ],\n        \"email\": [\n            \"email must be a string\",\n            \"The email field is required.\"\n        ],\n        \"arrivalDate\": [\n            \"arrivalDate must be a valid ISO 8601 date string\",\n            \"The arrivalDate field is required.\"\n        ],\n        \"arrivalTime\": [\n            \"arrivalTime must be a valid representation of military time in the format HH:MM\",\n            \"The arrivalTime field is required.\"\n        ],\n        \"departureDate\": [\n            \"departureDate must be a valid ISO 8601 date string\",\n            \"The departureDate field is required.\"\n        ],\n        \"departureTime\": [\n            \"departureTime must be a valid representation of military time in the format HH:MM\",\n            \"The departureTime field is required.\"\n        ]\n    }\n}"
+						},
+						{
+							"name": "UpdateReservation_BadRequest",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"reservationssss\": {\n        \"name\": \"Eslam Ma'moun\",\n        \"email\": \"eslam.fecu@gmail.com\",\n        \"arrivalDate\": \"2022-08-15\",\n        \"arrivalTime\": \"10:40\",\n        \"departureDate\": \"2022-08-16\",\n        \"departureTime\": \"16:30\",\n        \"status\": \"paid\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:11000/reservation/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "11000",
+									"path": [
+										"reservation",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"35-TfWRy7I0fbmXB+7WSV2RAYmIIKc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 16 Jul 2022 03:49:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Please insert correct query\",\n    \"errors\": {}\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
