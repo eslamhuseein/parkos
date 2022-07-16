@@ -22,29 +22,25 @@ export class ReservationEntity {
 
   @Column({
     type: 'timestamp',
-    nullable: false,
-    default: () => null
+    nullable: true
   })
   arrivalDate: Date
 
   @Column({
     type: 'time',
-    nullable: false,
-    default: () => null
+    nullable: true
   })
   arrivalTime: Date
 
   @Column({
     type: 'timestamp',
-    nullable: false,
-    default: () => null
+    nullable: true
   })
   departureDate: Date
 
   @Column({
     type: 'time',
-    nullable: false,
-    default: () => null
+    nullable: true
   })
   departureTime: Date
 

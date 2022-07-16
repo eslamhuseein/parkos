@@ -1,5 +1,5 @@
 export class ApiConfigService {
-  private AppPort: number = 8000
+  private AppPort: number = 11000
 
   set setAppPort(port: number) {
     this.AppPort = port;

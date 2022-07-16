@@ -3,61 +3,65 @@ services:
   # Reservation
   nestjs:
     build:
-      context: .
+      context: ./
     command: sh -c "npm run db:create InitalDataBase && npm run db:migrate && node dist/main"
-    image: xtwiny/parkos
+    image: xtwiny/parkos-resapi
     depends_on:
       mysql_database:
         condition: service_healthy
       phpmyadmin:
         condition: service_started
+      rabbitmq:
+        condition: service_healthy
     networks:
-      - frontend
       - backend
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_HOST=parkos-mysql
       - MYSQL_DB=parkos
+      - RABBITQM_SERVER=parkos-rabbitmq-server
     volumes:
       - ./www/:/var/www/html
     ports:
-      - "30001:80"
+      - "11000:11000"
     container_name: parkos-reservation
   # Email Service
   emailserv:
     build:
       context: ./
     command: sh -c "node dist/main"
-    image: xtwiny/parkos-emailserv
+    image: xtwiny/parkos-emailservice
     depends_on:
       rabbitmq:
         condition: service_healthy
     networks:
-      - frontend
       - backend
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
       - MYSQL_HOST=parkos-mysql
       - MYSQL_DB=parkos
+      - RABBITQM_SERVER=parkos-rabbitmq-server
     volumes:
       - ./www/:/var/www/html
     ports:
-      - "30001:80"
-    container_name: parkos-reservation
+      - "11001:11001"
+    container_name: parkos-email
   # RabbitMQ
   rabbitmq:
     image: rabbitmq:3-management
     healthcheck:
       test: "exit 0"
-    container_name: rabbitmq
-    hostname: rabbitmq
+    # hostname: rabbitmq-server
     volumes:
       - /var/lib/rabbitmq
+    networks:
+      - backend
     ports:
       - '5672:5672'
       - '15672:15672'
     env_file:
       - ./rabbitmq.env
+    container_name: parkos-rabbitmq-server
   # MySQL Server
   mysql_database:
     image: mysql:5.7
@@ -86,4 +90,3 @@ services:
     container_name: parkos-phpmyadmin
 networks:
   backend:
-  frontend:
