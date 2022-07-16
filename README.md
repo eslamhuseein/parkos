@@ -1,2 +1,3 @@
 # parkos
-## $ docker-compose up
+## Installation: 
+### $ docker-compose up
