@@ -23,7 +23,7 @@ services:
     ports:
       - "30001:80"
     container_name: parkos-reservation
-  # Reservation
+  # Email Service
   emailserv:
     build:
       context: ./
