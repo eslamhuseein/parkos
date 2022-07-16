@@ -2,8 +2,6 @@ version: '3.2'
 services:
   # Reservation
   nestjs:
-    build:
-      context: ./
     command: sh -c "npm run db:create InitalDataBase && npm run db:migrate && node dist/main"
     image: xtwiny/parkos-resapi
     depends_on:
@@ -27,8 +25,6 @@ services:
     container_name: parkos-reservation
   # Email Service
   emailserv:
-    build:
-      context: ./
     command: sh -c "node dist/main"
     image: xtwiny/parkos-emailservice
     depends_on:
